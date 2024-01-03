@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Converter</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  </style>
+ 
+</head>
+<body>
+  <div class="container">
+    <h1>Image Converter</h1>
+    <form action="/convert" method="post" enctype="multipart/form-data">
+      <label for="imageFile">Choose an image file:</label>
+      <input type="file" id="imageFile" name="imageFile" accept="image/*" required>
+      <br><br>
+      <label for="outputFormat">Select output format:</label>
+      <select id="outputFormat" name="outputFormat" required>
+        <option value="jpeg">JPEG</option>
+        <option value="png">PNG</option>
+        <option value="gif">GIF</option>
+        <!-- Add other supported formats here -->
+      </select>
+      <br><br>
+      <label for="resizeWidth">Enter width (optional):</label>
+      <input type="number" id="resizeWidth" name="resizeWidth">
+      <br><br>
+      <label for="resizeHeight">Enter height (optional):</label>
+      <input type="number" id="resizeHeight" name="resizeHeight">
+      <br><br>
+      <label for="filter">Apply filter (optional):</label>
+      <select id="filter" name="filter">
+        <option value="grayscale">Grayscale</option>
+        <option value="blur">Blur</option>
+        <option value="sharpen">Sharpen</option>
+        <!-- Add other filters here -->
+      </select>
+      
+      <br><br>
+      <input type="submit" value="Convert">
+    </form>
+
+    <div>
+      <h3>Converted Image</h3>
+      <a href="{{ download_link }}" download>Download Converted Image</a>
+    </div>
+  
+  </div>
+</body>
+</html>
